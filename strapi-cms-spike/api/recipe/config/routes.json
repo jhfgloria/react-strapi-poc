@@ -1,0 +1,76 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/recipes",
+      "handler": "Recipe.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/recipes/count",
+      "handler": "Recipe.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/recipes/:id",
+      "handler": "Recipe.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/recipes",
+      "handler": "Recipe.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/recipes/:id",
+      "handler": "Recipe.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/recipes/:id",
+      "handler": "Recipe.destroy",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/recipes/:id/relationships/:relation",
+      "handler": "Recipe.createRelation",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/recipes/:id/relationships/:relation",
+      "handler": "Recipe.updateRelation",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/recipes/:id/relationships/:relation",
+      "handler": "Recipe.destroyRelation",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

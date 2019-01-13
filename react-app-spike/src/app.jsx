@@ -1,12 +1,38 @@
-import React from "react";
+import React from 'react';
+import Header from './navigation/Header.jsx';
+import AppRoutes from './navigation/AppRoutes.jsx';
+import { BrowserRouter as Router } from 'react-router-dom';
+import navigationServices from './navigation/navigation-services';
 
-const App = () => {
-  return (
-    <div>
-      <h1>Welcome to React boilerplate</h1>
-      <p>Edit app.jsx file to edit this page</p>
-    </div>
-  );
+export default class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      categories: null
+    };
+  }
+  
+  componentWillMount() {
+    navigationServices.getCategories()
+      .then(categories => this.setState({ categories: categories }))
+      .catch(console.error);
+  }
+
+  render() {
+    return this.state.categories 
+      ? (
+        <div>
+          <h1>Your recipes website 🌭 🌮</h1>
+          <p>Find your favorite meals</p>
+          <Router>
+            <div>
+              <Header categories={this.state.categories} />
+              <AppRoutes categories={this.state.categories} />
+            </div>
+          </Router>
+        </div>
+      ) : (
+        <p>Loading your best recipes application... Yummy! TACOSSSS (🌮)</p>
+      );
+  }
 };
-
-export default App;
